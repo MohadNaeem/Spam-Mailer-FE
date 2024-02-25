@@ -63,20 +63,38 @@ export default function UserReports() {
     try {
       setIsSendingLoading(true);
       const data = await axios.get(`${baseURL}/mail/messages`);
+      console.log(data);
+      // if(data.status)
       await getDashoardData();
-      store.addNotification({
-        title: "Success!",
-        message: "All Messages have been replied.",
-        type: "success",
-        insert: "top",
-        container: "top-right",
-        animationIn: ["animate__animated", "animate__fadeIn"],
-        animationOut: ["animate__animated", "animate__fadeOut"],
-        dismiss: {
-          duration: 5000,
-          onScreen: true,
-        },
-      });
+      if (data.status === 200) {
+        store.addNotification({
+          title: "Success!",
+          message: "All Messages have been replied.",
+          type: "success",
+          insert: "top",
+          container: "top-right",
+          animationIn: ["animate__animated", "animate__fadeIn"],
+          animationOut: ["animate__animated", "animate__fadeOut"],
+          dismiss: {
+            duration: 5000,
+            onScreen: true,
+          },
+        });
+      } else {
+        store.addNotification({
+          title: "Failed!",
+          message: "Unexpected error occured.",
+          type: "danger",
+          insert: "top",
+          container: "top-right",
+          animationIn: ["animate__animated", "animate__fadeIn"],
+          animationOut: ["animate__animated", "animate__fadeOut"],
+          dismiss: {
+            duration: 5000,
+            onScreen: true,
+          },
+        });
+      }
     } catch (error) {
       store.addNotification({
         title: "Failed!",
