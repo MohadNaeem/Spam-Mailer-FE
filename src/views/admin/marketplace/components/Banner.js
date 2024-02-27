@@ -13,6 +13,7 @@ export default function Banner({
   refresh,
   spamValue,
 }) {
+  console.log(spamValue)
   // Chakra Color Mode
   return (
     <Flex
@@ -77,7 +78,7 @@ export default function Banner({
             spamValue === 0 ||
             spamValue === null ||
             spamValue === undefined ||
-            !isNaN(spamValue)
+            isNaN(spamValue)
           }
           me="18px"
         >
