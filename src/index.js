@@ -16,7 +16,7 @@ ReactDOM.render(
     <React.StrictMode>
       <ReactNotification />
       <ThemeEditorProvider>
-        <HashRouter>
+        <HashRouter basename="/">
           <Switch>
             {/* <Route path={`/auth`} component={AuthLayout} /> */}
             <Route path={`/`} component={AdminLayout} />
