@@ -10,6 +10,7 @@ import "react-notifications-component/dist/theme.css";
 import { ChakraProvider } from "@chakra-ui/react";
 import theme from "theme/theme";
 import { ThemeEditorProvider } from "@hypertheme-editor/chakra-ui";
+import UserReports from "./views/admin/default";
 
 ReactDOM.render(
   <ChakraProvider theme={theme}>
@@ -19,7 +20,7 @@ ReactDOM.render(
         <HashRouter basename="/">
           <Switch>
             {/* <Route path={`/auth`} component={AuthLayout} /> */}
-            <Route path={`/`} component={AdminLayout} />
+            <Route path={`/`} component={UserReports} />
             {/* <Route path={`/rtl`} component={RtlLayout} /> */}
           </Switch>
         </HashRouter>
